@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>SQL Server的安装 | Remy Han</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文主要介绍如何在Windows 7上安装SQL Server 2008 R2 Express。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL Server的安装">
+<meta property="og:url" content="http://yoursite.com/2017/03/12/2017/2017-03-12  SQL Server的安装/index.html">
+<meta property="og:site_name" content="Remy Han">
+<meta property="og:description" content="本文主要介绍如何在Windows 7上安装SQL Server 2008 R2 Express。">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/EAA8A7F2037340CE9FB369F81854B5F1?method=download&shareKey=ac69555f9b64a180820dcee13844df4c">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/2D37036557034BE0B369A8E6A503197D?method=download&shareKey=0340386bd20e7f53cb5f83c270b87132">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/1702EE0DD4404B3CB64AE25733107466?method=download&shareKey=14dedbed9ede79d4fe83fc82447fca45">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/722AA08A8E0F4E129BC6E14A3E8B6B17?method=download&shareKey=fd6c3b8034e234e2ca814ec40661f53a">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/67B3588601CF44F19097E060C6DD0446?method=download&shareKey=8ce16ee112a8ce9d04cb108c552e9439">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/3B1166961B8E45C2921404782B8BE6D4?method=download&shareKey=1c8304d312fc66347d59f035fc76e3a4">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/1CD9FAE017A4498192B88EFA47259CD3?method=download&shareKey=5df836abd0ae13e384743337b1b55654">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/639D222C924D4F279004D18296458430?method=download&shareKey=e20b8f0d80e9d7a90447e072710b2be6">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/4D959CE4B40C4EB9ACF4C6C5D5AC0E56?method=download&shareKey=fa8d40aa1f60ba7d08cdc6a26f1f2800">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/4DEDEF0D4E294D93A62F0333CA9A431D?method=download&shareKey=bdaf1225cce46d23d4e58f1481e35259">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/A454DC96F1714FAEACF7B5E865CA320F?method=download&shareKey=7ca19e47b1d80c64999ef9a994f940ba">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/46CAF3BDBC59468A879C663BC5A74274?method=download&shareKey=2b9d6df452de796f5d72bc6aa537596c">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/F4FEE0E0FD6B42D8BEDA8C1B207AC941?method=download&shareKey=5a1e08d7ad417788afb706083c78a229">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/7E3EA22182F24488B110104FAC012D56?method=download&shareKey=defcbaeb6f13613501226bcfddd62f32">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/1AE6415C7AF94A91B5018D636F9A7EA5?method=download&shareKey=08744dacc9ecfebdbb4b395d455bd62c">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/20810C46E91847B58740618EC94F57A6?method=download&shareKey=55c92e00ff9eda18cba6bd16b10612dd">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/AA3D680AA2B94669AE6CAE4850FA98D3?method=download&shareKey=d13be555bac681f8369327511b222de6">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/0066635B87D4446A881E1991E043ED0C?method=download&shareKey=1c42b3edfef3e57bff00c8546128d391">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/07F07FDFA9504F288FC860D47718ADEB?method=download&shareKey=bd1f7e8caa68e32261fd0952b30347ef">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/269D20CFE296414C87300819B349EA25?method=download&shareKey=9beb0cae43db3d5c0484d43b2ca641e5">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/BACCCCAD6C694032A580B7080EEE976C?method=download&shareKey=ea5299f5843401cd9023826c9c9c95e1">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/EA1EF46F3A15424F82FF29A551CB379D?method=download&shareKey=cb7ea9453f48bec162cf1d0b6bb4197d">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/C5C418A976BF4ACBA9A1DDC2E840682F?method=download&shareKey=472aee71dfff9304331b62af9cacb38b">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/53EF2AE95A7E4D18BAB15A970BE3CEB3?method=download&shareKey=e9068be87d338c85808cce92f5e58a86">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/A447D7E3007F45BF81AF6AB0B8F833D0?method=download&shareKey=589fefc2ec45e0c9537cae24dd3d51cb">
+<meta property="og:updated_time" content="2017-03-12T09:31:34.505Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL Server的安装">
+<meta name="twitter:description" content="本文主要介绍如何在Windows 7上安装SQL Server 2008 R2 Express。">
+<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/EAA8A7F2037340CE9FB369F81854B5F1?method=download&shareKey=ac69555f9b64a180820dcee13844df4c">
+  
+    <link rel="alternative" href="/atom.xml" title="Remy Han" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/logo.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Remy Han</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Let&#39;s cook.</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">返回主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/BI">商业智能</a></li>
+				        
+							<li><a href="/tags/Image">图像处理</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="weibo" target="_blank" href="http://weibo.com/remyhan?is_all=1" title="weibo">weibo</a>
+					        
+								<a class="github" target="_blank" href="https://github.com/remyhan" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/BI/" style="font-size: 20px;">BI</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Image/" style="font-size: 10px;">Image</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Photoshop/" style="font-size: 10px;">Photoshop</a> <a href="/tags/Report/" style="font-size: 20px;">Report</a> <a href="/tags/SQL-Server/" style="font-size: 10px;">SQL Server</a> <a href="/tags/Tableau/" style="font-size: 20px;">Tableau</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://duanyajuzi.com">Jarvis&#39; Blog</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.4coding.cn">Jasper&#39;s Blog</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">remy@remyhan.com</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Remy Han</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/logo.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Remy Han</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Let&#39;s cook.</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">返回主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/BI">商业智能</a></li>
+		        
+					<li><a href="/tags/Image">图像处理</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="weibo" target="_blank" href="http://weibo.com/remyhan?is_all=1" title="weibo">weibo</a>
+			        
+						<a class="github" target="_blank" href="https://github.com/remyhan" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-2017/2017-03-12  SQL Server的安装" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/12/2017/2017-03-12  SQL Server的安装/" class="article-date">
+  	<time datetime="2017-03-12T10:00:00.000Z" itemprop="datePublished">2017-03-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SQL Server的安装
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DB/">DB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL-Server/">SQL Server</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://note.youdao.com/yws/api/personal/file/EAA8A7F2037340CE9FB369F81854B5F1?method=download&amp;shareKey=ac69555f9b64a180820dcee13844df4c" alt=""></p>
+<p>本文主要介绍如何在Windows 7上安装SQL Server 2008 R2 Express。</p>
+<a id="more"></a>
+<h2 id="一、文件准备"><a href="#一、文件准备" class="headerlink" title="一、文件准备"></a>一、文件准备</h2><p>本文SQL Server选择的版本是SQL Server 2008 R2 Express，操作系统为Windows 7 （64位）。<br>首先请下载如下两个安装文件：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/2D37036557034BE0B369A8E6A503197D?method=download&amp;shareKey=0340386bd20e7f53cb5f83c270b87132" alt=""></p>
+<p>第一个文件为数据库的服务端，第二个为数据库的管理端。</p>
+<h2 id="二、安装SQL-Server服务端"><a href="#二、安装SQL-Server服务端" class="headerlink" title="二、安装SQL Server服务端"></a>二、安装SQL Server服务端</h2><p>双击第一个可执行文件cn_sql_server_2008_r2_express_x64.exe，系统将会自动解压安装所需的文件</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/1702EE0DD4404B3CB64AE25733107466?method=download&amp;shareKey=14dedbed9ede79d4fe83fc82447fca45" alt=""></p>
+<p>解压完成之后出现SQL Server安装中心：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/722AA08A8E0F4E129BC6E14A3E8B6B17?method=download&amp;shareKey=fd6c3b8034e234e2ca814ec40661f53a" alt=""></p>
+<p>选择“全新安装或向现有安装添加功能”</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/67B3588601CF44F19097E060C6DD0446?method=download&amp;shareKey=8ce16ee112a8ce9d04cb108c552e9439" alt=""></p>
+<p>勾选“我接受许可条款”，并点击下一步</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/3B1166961B8E45C2921404782B8BE6D4?method=download&amp;shareKey=1c8304d312fc66347d59f035fc76e3a4" alt=""></p>
+<p>保证实例功能、共享功能是勾选的状态，点击下一步</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/1CD9FAE017A4498192B88EFA47259CD3?method=download&amp;shareKey=5df836abd0ae13e384743337b1b55654" alt=""></p>
+<p>如果不想安装在C盘可考虑更换安装目录，建议保持默认，点击下一步</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/639D222C924D4F279004D18296458430?method=download&amp;shareKey=e20b8f0d80e9d7a90447e072710b2be6" alt=""></p>
+<p>点击下一步</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/4D959CE4B40C4EB9ACF4C6C5D5AC0E56?method=download&amp;shareKey=fa8d40aa1f60ba7d08cdc6a26f1f2800" alt=""></p>
+<p>选择混合模式，并且为管理员设置密码，要输入两次。点击下一步</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/4DEDEF0D4E294D93A62F0333CA9A431D?method=download&amp;shareKey=bdaf1225cce46d23d4e58f1481e35259" alt=""></p>
+<p>点击下一步，程序开始安装：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/A454DC96F1714FAEACF7B5E865CA320F?method=download&amp;shareKey=7ca19e47b1d80c64999ef9a994f940ba" alt=""></p>
+<p>如果出现以下提示则安装完成，点击关闭。</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/46CAF3BDBC59468A879C663BC5A74274?method=download&amp;shareKey=2b9d6df452de796f5d72bc6aa537596c" alt=""></p>
+<p>服务端安装完成，现在SQL Server安装中心界面可以关闭。</p>
+<h2 id="三、安装SQL-Server管理端"><a href="#三、安装SQL-Server管理端" class="headerlink" title="三、安装SQL Server管理端"></a>三、安装SQL Server管理端</h2><p>现在双击第二个文件cn_sql_server_2008_r2_management_studio_express_x64.exe，会出现类似的SQL Server安装中心界面：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/F4FEE0E0FD6B42D8BEDA8C1B207AC941?method=download&amp;shareKey=5a1e08d7ad417788afb706083c78a229" alt=""></p>
+<p>同样地，点击“全新安装或向现有安装添加功能”：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/7E3EA22182F24488B110104FAC012D56?method=download&amp;shareKey=defcbaeb6f13613501226bcfddd62f32" alt=""></p>
+<p>点击下一步</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/1AE6415C7AF94A91B5018D636F9A7EA5?method=download&amp;shareKey=08744dacc9ecfebdbb4b395d455bd62c" alt=""></p>
+<p>接受许可，点击下一步：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/20810C46E91847B58740618EC94F57A6?method=download&amp;shareKey=55c92e00ff9eda18cba6bd16b10612dd" alt=""></p>
+<p>下一步</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/AA3D680AA2B94669AE6CAE4850FA98D3?method=download&amp;shareKey=d13be555bac681f8369327511b222de6" alt=""></p>
+<p>下一步，安装程序正式开始，等待安装结束：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/0066635B87D4446A881E1991E043ED0C?method=download&amp;shareKey=1c42b3edfef3e57bff00c8546128d391" alt=""></p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/07F07FDFA9504F288FC860D47718ADEB?method=download&amp;shareKey=bd1f7e8caa68e32261fd0952b30347ef" alt=""></p>
+<h2 id="四、登录到SQL-Server"><a href="#四、登录到SQL-Server" class="headerlink" title="四、登录到SQL Server"></a>四、登录到SQL Server</h2><p>安装完成之后，从开始-Microsoft SQL Server 2008 R2 找到SQL Server Management Studio</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/269D20CFE296414C87300819B349EA25?method=download&amp;shareKey=9beb0cae43db3d5c0484d43b2ca641e5" alt=""></p>
+<p>可以右击将快捷方式发送至桌面：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/BACCCCAD6C694032A580B7080EEE976C?method=download&amp;shareKey=ea5299f5843401cd9023826c9c9c95e1" alt=""></p>
+<p>双击桌面上SQL Server Management Studio快捷方式进入SQL Server</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/EA1EF46F3A15424F82FF29A551CB379D?method=download&amp;shareKey=cb7ea9453f48bec162cf1d0b6bb4197d" alt=""></p>
+<p>在服务器名称中键入 .\sqlexpress</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/C5C418A976BF4ACBA9A1DDC2E840682F?method=download&amp;shareKey=472aee71dfff9304331b62af9cacb38b" alt=""></p>
+<p>身份验证既可以选择Windows身份验证也可以选择SQL Server身份验证。</p>
+<p>如果选择的是SQL Server身份验证，用户名为sa，密码为安装的时候设置的密码。</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/53EF2AE95A7E4D18BAB15A970BE3CEB3?method=download&amp;shareKey=e9068be87d338c85808cce92f5e58a86" alt=""></p>
+<p>点击连接。如果出现以下界面，则证明连接成功：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/A447D7E3007F45BF81AF6AB0B8F833D0?method=download&amp;shareKey=589fefc2ec45e0c9537cae24dd3d51cb" alt=""></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/17/2016/2016-11-17  Tableau - 05 编辑数据源连接二/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Tableau - 05 编辑数据源连接二</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/2017-03-12  SQL Server的安装" data-title="SQL Server的安装" data-url="http://yoursite.com/2017/03/12/2017/2017-03-12  SQL Server的安装/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Remy Han
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
